@@ -9,6 +9,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sio.autoecoleprojet.controllers.CompteController;
 import sio.autoecoleprojet.tools.ConnexionBDD;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ import java.util.ResourceBundle;
 public class PageConnexionController implements Initializable {
 
     ConnexionBDD connexionBDD;
-
+    CompteController compteController;
 
     @javafx.fxml.FXML
     private AnchorPane apProfilE;
@@ -31,6 +32,7 @@ public class PageConnexionController implements Initializable {
     private AnchorPane apInscriptionE;
 
 
+    ConnexionBDD cnx;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -42,7 +44,18 @@ public class PageConnexionController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        try {
+            System.out.println(compteController.getAllLogins());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
+
+
+
+
     @Deprecated
     public void clickedBtnConnexion(Event event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pageEleve.fxml"));
@@ -51,7 +64,9 @@ public class PageConnexionController implements Initializable {
         stage.setTitle("ELEVE");
         stage.setScene(scene);
         stage.show();
+
     }
+
 
 
 }

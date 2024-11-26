@@ -1,23 +1,38 @@
 package sio.autoecoleprojet.models;
 
+import java.time.LocalDate;
+
 public class Eleve {
+    private int codeEleve;
     private String nom;
     private String prenom;
-    private int sexe;
-    private int dateNaissance;
+    private Boolean sexe;
+    private String adresse;
+    private LocalDate dateNaissance;
     private int codePostal;
     private String ville;
-    private int tel;
+    private String tel;
+    private int numCompte;
 
-
-    public Eleve(String nom, String prenom, int sexe, int dateNaissance, int codePostal, String ville, int tel) {
+    public Eleve(int codeEleve, String nom, String prenom, Boolean sexe, String adresse, LocalDate dateNaissance, int codePostal, String ville, String tel, int numCompte) {
+        this.codeEleve = codeEleve;
         this.nom = nom;
         this.prenom = prenom;
         this.sexe = sexe;
+        this.adresse = adresse;
         this.dateNaissance = dateNaissance;
         this.codePostal = codePostal;
         this.ville = ville;
         this.tel = tel;
+        this.numCompte = numCompte;
+    }
+
+    public int getCodeEleve() {
+        return codeEleve;
+    }
+
+    public void setCodeEleve(int codeEleve) {
+        this.codeEleve = codeEleve;
     }
 
     public String getNom() {
@@ -36,19 +51,27 @@ public class Eleve {
         this.prenom = prenom;
     }
 
-    public int getSexe() {
+    public Boolean getSexe() {
         return sexe;
     }
 
-    public void setSexe(int sexe) {
+    public void setSexe(Boolean sexe) {
         this.sexe = sexe;
     }
 
-    public int getDateNaissance() {
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public LocalDate getDateNaissance() {
         return dateNaissance;
     }
 
-    public void setDateNaissance(int dateNaissance) {
+    public void setDateNaissance(LocalDate dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
@@ -68,11 +91,19 @@ public class Eleve {
         this.ville = ville;
     }
 
-    public int getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(int tel) {
+    public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public int getNumCompte() {
+        return numCompte;
+    }
+
+    public void setNumCompte(int numCompte) {
+        this.numCompte = numCompte;
     }
 }
